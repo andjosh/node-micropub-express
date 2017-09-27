@@ -128,6 +128,8 @@ const processJSONencodedBody = function (body) {
     } else if (key.indexOf('mp-') === 0) {
       key = key.substr(3);
       result.mp[key] = [].concat(value);
+    } else {
+      result[key] = value;
     }
   }
 
