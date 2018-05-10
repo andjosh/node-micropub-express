@@ -380,7 +380,7 @@ module.exports = function (options) {
     if (req.body.type === 'media' && options.mediaHandler) {
       Promise.resolve()
         // This way the function doesn't have to return a Promise
-        .then(() => options.mediaHandler(req.body.files.file[0]))
+        .then(() => options.mediaHandler(req.body.files.file[0]), req)
         .then(result => {
           if (!result || !result.url) {
             return res.sendStatus(400);
